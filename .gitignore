@@ -1,0 +1,50 @@
+# Next.js build output
+.next/
+out/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Dependency directories
+node_modules/
+
+# Optional runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Environment variables
+.env
+.env.*.local
+!.env.example
+
+# Build output
+dist/
+build/
+
+# Misc
+.DS_Store
+*.pem
+
+# VSCode settings
+.vscode/
+
+# Typescript
+*.tsbuildinfo
+
+# Firebase emulators or artifacts (if used)
+firebase-debug.log
+.firebaserc
+.firestore/
+
+# Ignore next/image optimization cache
+public/cache
+
+# Optional: ignore coverage reports (e.g. Jest)
+coverage/
