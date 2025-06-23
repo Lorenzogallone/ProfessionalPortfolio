@@ -52,10 +52,19 @@ SQLite · Google Auth · Render`} />
 • Deployed on Render (server + static frontend)
 • WebSocket server with room management and presence tracking`} />
 
-      <Section title="Security Highlights" text={`• Input validation on both client and server
+<Section
+  title="Security Highlights"
+  text={`• Input validation on client and server
 • Password hashing with bcrypt
-• Rate-limiting & session expiration
-• Secure WebSocket message dispatching`} />
+• Rate limiting & session expiration
+• Secure WebSocket message handling
+• Secure & HttpOnly Cookies to prevent XSS and theft
+• HSTS to enforce HTTPS and block downgrade attacks
+• SRI to validate third-party assets via SHA-256 hashes
+• CORS to restrict access to trusted origins only
+• CSP to block XSS via strict resource policies
+• SameSite Cookies to mitigate CSRF, with optional CSRF tokens`}
+ />
 
       <div className="mt-10 flex justify-between items-center">
         <Link href="/" className="text-blue-600 hover:underline text-sm">
