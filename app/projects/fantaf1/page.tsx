@@ -12,7 +12,7 @@ export default function FantaF1ProjectPage() {
         transition={{ duration: 0.6 }}
         className="text-4xl font-bold mb-4"
       >
-        Fanta F1 – Real-Time Fantasy Scoring App
+        Fanta F1 – Fantasy League Management Platform
       </motion.h1>
 
       <p className="mb-6 text-blue-600 text-lg">
@@ -26,32 +26,81 @@ export default function FantaF1ProjectPage() {
         </a>
       </p>
 
-      <p className="text-lg mb-8">
-        A full-stack fantasy Formula 1 platform with live race scoring, sprint logic, jolly picks and automatic standings.
+      <p className="text-lg mb-8 italic text-gray-600">
+        Personal project – A comprehensive web application to manage Formula 1 fantasy league among friends, 
+        featuring real-time standings, automatic points calculation, advanced statistics, and professional administration tools.
       </p>
 
-      <Section title="Stack & Tools" text={`React.js · TypeScript · Tailwind CSS · Bootstrap
-Firebase Firestore · Firebase Auth · React-Select`} />
+      <Section 
+        title="Tech Stack" 
+        text={`React 19 · React Router v7 · Vite 6
+Firebase Firestore · Firebase Hosting
+React Bootstrap · Material-UI · Recharts
+React-Select · i18n Multi-language`} 
+      />
 
-      <Section title="Main Features" text={`• Race results input with instant scoring
-• Sprint race & jolly bonus support
-• Double points for final round
-• Real-time user standings`} />
+      <Section 
+        title="Core Features" 
+        text={`• Auto-fetch race results from Ergast F1 API
+• Real-time leaderboard with progression charts
+• Sprint race & joker bonus system (29→30 rule)
+• Late submission with -3 penalty tracking
+• Championship predictions (drivers + constructors)
+• Full dark mode support`} 
+      />
 
-      <Section title="Firestore Schema" text={`/races → metadata, officialResults, submissions
-/ranking → points per user and race
-/championship/results → final podium`} />
+      <Section 
+        title="Advanced Statistics" 
+        text={`• Personal dashboards: performance metrics, formation history, joker analytics
+• Global analytics: top performers, race insights, driver popularity trends
+• Visual charts: line graphs, pie charts, histograms (Recharts)
+• Prediction accuracy tracking with position breakdown`} 
+      />
 
-      <Section title="Deployment" text={`• Firebase Hosting
-• Local testing with full Firestore emulator
-• Mobile-ready and deployed via Firebase`} />
+      <Section 
+        title="Admin Panel" 
+        text={`• Submit/edit formations for any user (bypass deadlines)
+• Modify race dates, deadlines, and sprint configuration
+• Automatic backup before calculations
+• Manual backup/restore system with JSON export
+• Database reset operations (formations, scores, complete)
+• Ranking snapshots after each calculation`} 
+      />
+
+      <Section 
+        title="Database Architecture" 
+        text={`Firestore Collections:
+/races → metadata, official results, submissions subcollection
+/ranking → user points, jokers, championship predictions
+/backups → auto/manual snapshots with metadata
+/rankingSnapshots → historical standings after each race
+/championship → final season results`} 
+      />
+
+      <Section 
+        title="Key Technical Implementations" 
+        text={`• Dynamic driver/team resolution (manual DB + API cache)
+• Points calculation engine with double points logic
+• Anti-duplicate validation for formations
+• Deadline countdown and grace period system
+• Environment-based configuration (dev/prod)
+• Responsive design (mobile/tablet/desktop)`} 
+      />
+
+      <Section 
+        title="Deployment & Hosting" 
+        text={`• Production: Firebase Hosting
+• Database: Cloud Firestore (NoSQL real-time)
+• Build: Vite with optimized production bundle
+• Version control: Git with feature branches`} 
+      />
 
       <div className="mt-10 flex justify-between items-center">
         <Link href="/" className="text-blue-600 hover:underline text-sm">
           ← Back to Projects
         </Link>
         <Link
-          href="https://github.com/Lorenzogallone/fanta-f1.git"
+          href="https://github.com/Lorenzogallone/fanta-f1"
           target="_blank"
           className="inline-block text-blue-600 hover:underline"
         >
