@@ -19,12 +19,12 @@ export default function FantaF1ProjectPage() {
       <p className="mb-6 text-blue-600 text-lg">
         🌍{' '}
         <a
-          href="https://fantaf1-b5410.web.app"
+          href="https://fanta-f1-bfb7b.web.app"
           target="_blank"
           rel="noopener noreferrer"
           className="font-semibold underline hover:text-blue-800"
         >
-          Live Demo → fantaf1-b5410.web.app
+          Live Demo → fanta-f1.web.com
         </a>
       </p>
 
@@ -148,7 +148,7 @@ export default function FantaF1ProjectPage() {
           <div className="bg-gray-50 rounded-lg p-4 border">
             <h3 className="font-semibold text-gray-800 mb-2">📝 Formation Management</h3>
             <ul className="space-y-1 list-disc list-inside">
-              <li>Submit or edit any user's formation, bypassing the deadline</li>
+              <li>Submit or edit any user&apos;s formation, bypassing the deadline</li>
               <li>Apply or override late submission penalty</li>
               <li>Manage sprint formations separately</li>
             </ul>
@@ -174,7 +174,7 @@ export default function FantaF1ProjectPage() {
             <ul className="space-y-1 list-disc list-inside">
               <li>Auto-backup before every critical operation</li>
               <li>Browse, preview, and one-click restore from any snapshot</li>
-              <li>Export as JSON; destructive ops require typing "RESTORE"</li>
+              <li>Export as JSON; destructive ops require typing &quot;RESTORE&quot;</li>
             </ul>
           </div>
         </div>
