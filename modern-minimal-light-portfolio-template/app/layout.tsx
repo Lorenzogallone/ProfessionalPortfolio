@@ -13,39 +13,39 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: '[Your Name] - Software Developer',
+	title: 'Lorenzo Gallone – Software Engineer',
 	description:
-		'Welcome to my portfolio! I am a passionate software developer with a focus on clean, minimal, and effective solutions. I believe in the power of simplicity and thoughtful design to create impactful digital experiences.',
+		"I'm Lorenzo Gallone, a software engineer specializing in databases, LLM integration, and modern full-stack development. I build clean, efficient, and maintainable software systems with a focus on real-world applications and smart design.",
 	keywords: [
-		'Software Developer',
-		'Clean Code',
-		'Minimal Design',
-		'Modern Development',
-		'Web Development',
-		'User Experience',
-		'Design Systems',
-		'JavaScript',
-		'TypeScript',
+		'Lorenzo Gallone',
+		'Software Engineer',
+		'LLM Integration',
+		'Databases',
+		'PostgreSQL',
+		'Python',
 		'React',
 		'Next.js',
-		'Performance',
-		'Accessibility',
-		'Minimalist Portfolio',
-		'[Your Name]',
+		'Node.js',
+		'Full-Stack Development',
+		'Prompt Engineering',
+		'Code Automation',
+		'Firebase',
+		'Web Apps',
 	],
-	authors: [{ name: '[Your Name]' }],
-	creator: '[Your Name]',
+	authors: [{ name: 'Lorenzo Gallone' }],
+	creator: 'Lorenzo Gallone',
 	openGraph: {
-		title: '[Your Name] - Software Developer Portfolio',
-		description: 'Passionate software developer creating clean, minimal, and effective digital solutions. Explore my work and development philosophy.',
+		title: 'Lorenzo Gallone – Software Engineer Portfolio',
+		description:
+			"Explore the portfolio of Lorenzo Gallone – software engineer focused on database systems, LLM-powered development, and full-stack applications. Discover clean and efficient project solutions.",
 		url: 'https://your-domain.com',
-		siteName: '[Your Name] - Portfolio',
+		siteName: 'Lorenzo Gallone – Portfolio',
 		images: [
 			{
 				url: '/og-image.jpg',
 				width: 1200,
 				height: 630,
-				alt: '[Your Name] - Modern Minimal Portfolio',
+				alt: 'Lorenzo Gallone – Software Engineer Portfolio',
 			},
 		],
 		locale: 'en_US',
@@ -53,8 +53,9 @@ export const metadata: Metadata = {
 	},
 	twitter: {
 		card: 'summary_large_image',
-		title: '[Your Name] - Software Developer',
-		description: 'Passionate software developer creating clean, minimal, and effective digital solutions. Explore my work and development philosophy.',
+		title: 'Lorenzo Gallone – Software Engineer',
+		description:
+			"Explore the portfolio of Lorenzo Gallone – software engineer focused on database systems, LLM-powered development, and full-stack applications. Discover clean and efficient project solutions.",
 		creator: '@yourusername',
 		images: ['/og-image.jpg'],
 	},
@@ -78,7 +79,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
+			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+				{children}
+			</body>
 		</html>
 	);
 }
