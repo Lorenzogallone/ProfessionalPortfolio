@@ -9,13 +9,28 @@ export function Footer() {
           © {new Date().getFullYear()} {profile.name} · {profile.location}
         </p>
         <div className="flex items-center gap-2">
-          <a href={`mailto:${profile.email}`} aria-label="Email" className="p-2 transition-colors hover:text-signal">
+          <a
+            href={`mailto:${profile.email}`}
+            aria-label="Email"
+            data-magnetic
+            className="p-2 transition-colors hover:text-signal"
+          >
             <Mail />
           </a>
-          <a href={profile.linkedin} aria-label="LinkedIn" className="p-2 transition-colors hover:text-signal">
+          <a
+            href={profile.linkedin}
+            aria-label="LinkedIn"
+            data-magnetic
+            className="p-2 transition-colors hover:text-signal"
+          >
             <LinkedIn />
           </a>
-          <a href={profile.github} aria-label="GitHub" className="p-2 transition-colors hover:text-signal">
+          <a
+            href={profile.github}
+            aria-label="GitHub"
+            data-magnetic
+            className="p-2 transition-colors hover:text-signal"
+          >
             <GitHub />
           </a>
         </div>

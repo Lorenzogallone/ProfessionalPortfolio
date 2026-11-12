@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo, STIX_Two_Text } from "next/font/google";
+import { Cursor } from "@/components/Cursor";
 import { Effects } from "@/components/Effects";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -70,6 +71,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         </main>
         <Footer />
         <Effects />
+        <Cursor />
       </body>
     </html>
   );

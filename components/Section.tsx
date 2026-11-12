@@ -15,7 +15,7 @@ export function Section({
 }) {
   return (
     <section id={id} aria-labelledby={`${id}-title`} className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
-      <div data-reveal="sector" className="mb-12 sm:mb-14">
+      <div data-reveal="sector" data-flag className="mb-12 sm:mb-14">
         <div className="mb-6 flex items-center gap-4">
           <p className="sector-label label shrink-0">{eyebrow}</p>
           <span aria-hidden className="sector-line relative h-px flex-1" />

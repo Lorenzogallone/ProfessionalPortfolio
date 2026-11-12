@@ -17,6 +17,7 @@ export function ProjectCard({
     <Link
       href={`/work/${project.slug}`}
       data-reveal="card"
+      data-cursor="open"
       style={{ ["--d" as string]: `${index * 120}ms` }}
       className={`surface group flex flex-col overflow-hidden rounded-3xl ${featured ? "lg:col-span-2 lg:flex-row-reverse" : ""}`}
     >

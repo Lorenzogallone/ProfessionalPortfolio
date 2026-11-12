@@ -409,3 +409,134 @@ body {
   animation: graph-draw 2.6s var(--ease-out-quint) both;
   animation-delay: var(--dd, 0.3s);
 }
+
+/* ---------- Magnetic sight (Cursor.tsx) ---------- */
+
+html[data-custom-cursor],
+html[data-custom-cursor] * {
+  cursor: none;
+}
+
+.cursor-ring,
+.cursor-dot {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 60;
+  pointer-events: none;
+  translate: -50% -50%;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+html[data-cursor-shown] .cursor-ring,
+html[data-cursor-shown] .cursor-dot {
+  opacity: 1;
+}
+
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 99px;
+  background: var(--color-signal);
+}
+
+.cursor-ring {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1.5px solid var(--color-signal);
+  border-radius: 99px;
+  color: var(--color-asphalt);
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-variation-settings: "wdth" 112;
+  transition:
+    opacity 0.2s,
+    width 0.35s var(--ease-out-quint),
+    height 0.35s var(--ease-out-quint),
+    background-color 0.25s,
+    border-color 0.25s;
+}
+
+.cursor-ring > span {
+  opacity: 0;
+  transform: scale(0.6);
+  transition:
+    opacity 0.2s,
+    transform 0.3s var(--ease-out-quint);
+}
+
+.cursor-ring[data-mode="link"] {
+  width: 48px;
+  height: 48px;
+  border-color: var(--color-sand);
+}
+
+.cursor-ring[data-mode="open"] {
+  width: 84px;
+  height: 84px;
+  background: var(--color-signal);
+}
+
+.cursor-ring[data-mode="open"] > span {
+  opacity: 1;
+  transform: none;
+}
+
+html:has(.cursor-ring[data-mode="open"]) .cursor-dot {
+  opacity: 0;
+}
+
+/* Unlayered, so it wins over Tailwind's transition utilities on the same elements. */
+[data-magnetic] {
+  transition:
+    translate 0.35s var(--ease-out-quint),
+    transform 0.3s var(--ease-out-quint),
+    color 0.2s,
+    background-color 0.2s,
+    border-color 0.2s;
+}
+
+/* ---------- Sector flag (Effects.tsx) ---------- */
+
+/* An orange band with a checkered trailing edge, parked off screen until a new section arrives. */
+.sector-flag {
+  position: absolute;
+  top: -15%;
+  bottom: -15%;
+  left: 0;
+  width: 32vw;
+  min-width: 14rem;
+  background: var(--color-signal);
+  visibility: hidden;
+}
+
+.sector-flag::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  left: -14px;
+  width: 14px;
+  background: conic-gradient(
+      var(--color-sand) 25%,
+      var(--color-asphalt) 0 50%,
+      var(--color-sand) 0 75%,
+      var(--color-asphalt) 0
+    )
+    0 0 / 14px 14px;
+}
+
+/* When the flag passes, the section opener waits for it before tracing in. */
+[data-flagged] .sector-line {
+  transition-delay: 0.4s;
+}
+
+[data-flagged] .sector-label {
+  transition-delay: 0.5s;
+}
+
+[data-flagged] .sector-title > span {
+  transition-delay: 0.55s;
+}

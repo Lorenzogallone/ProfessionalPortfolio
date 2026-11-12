@@ -47,6 +47,7 @@ export default async function CaseStudy({ params }: Props) {
           <div className="max-w-3xl">
             <Link
               href="/#work"
+              data-magnetic
               className="mb-12 inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-signal"
             >
               <ArrowLeft /> All work
@@ -77,6 +78,7 @@ export default async function CaseStudy({ params }: Props) {
                     href={l.href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    data-magnetic
                     className={`inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm ${
                       i === 0
                         ? "btn-signal font-semibold"
@@ -167,6 +169,7 @@ export default async function CaseStudy({ params }: Props) {
 
         <Link
           href={`/work/${next.slug}`}
+          data-cursor="open"
           className="surface group flex items-center justify-between rounded-3xl p-6 sm:p-8"
         >
           <span>

@@ -151,12 +151,14 @@ function Hero() {
           <div className="hero-fade mt-10 flex flex-wrap items-center gap-3" style={{ ["--d" as string]: "560ms" }}>
             <a
               href="#work"
+              data-magnetic
               className="btn-signal inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold"
             >
               See my work <ArrowRight />
             </a>
             <a
               href={profile.resume}
+              data-magnetic
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-xl border border-seam-strong bg-carbon-hi px-5 py-3 text-sm font-medium text-sand transition-colors hover:border-ember hover:text-ember"
@@ -167,6 +169,7 @@ function Hero() {
               <a
                 href={profile.linkedin}
                 aria-label="LinkedIn"
+                data-magnetic
                 className="p-2.5 text-muted transition-colors hover:text-signal"
               >
                 <LinkedIn />
@@ -174,6 +177,7 @@ function Hero() {
               <a
                 href={profile.github}
                 aria-label="GitHub"
+                data-magnetic
                 className="p-2.5 text-muted transition-colors hover:text-signal"
               >
                 <GitHub />
@@ -203,12 +207,14 @@ function Contact() {
           <div className="mt-9 flex flex-wrap gap-3">
             <a
               href={`mailto:${profile.email}`}
+              data-magnetic
               className="btn-signal inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold"
             >
               <Mail className="size-4" /> {profile.email}
             </a>
             <a
               href={profile.linkedin}
+              data-magnetic
               className="inline-flex items-center gap-2 rounded-xl border border-seam-strong bg-carbon-hi px-5 py-3 text-sm font-medium text-sand transition-colors hover:border-ember hover:text-ember"
             >
               <LinkedIn className="size-4" /> LinkedIn
