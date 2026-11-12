@@ -4,7 +4,8 @@ import { notFound } from "next/navigation";
 import { Flow } from "@/components/Flow";
 import { Gallery } from "@/components/Gallery";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "@/components/icons";
-import { projects } from "@/lib/content";
+import { CheckeredEdge, Circuit, PaceTrace, ThesisFigure } from "@/components/motifs";
+import { type Project, projects } from "@/lib/content";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -32,59 +33,91 @@ export default async function CaseStudy({ params }: Props) {
   if (index === -1) notFound();
   const project = projects[index];
   const next = projects[(index + 1) % projects.length];
+  const sideMotif = project.slug === "fanta-f1" || project.slug === "tiger";
 
   return (
     <article>
-      <header className="border-b border-line/60 bg-gradient-to-br from-night-950 to-night-800">
-        <div className="mx-auto max-w-4xl px-4 pt-10 pb-16 sm:px-6 sm:pt-14 sm:pb-20">
-          <Link href="/#work" className="mb-12 inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-teal">
-            <ArrowLeft /> All work
-          </Link>
-          <p className="eyebrow mb-4 animate-rise font-mono text-teal">{project.tag}</p>
-          <h1 className="animate-rise text-4xl font-semibold tracking-tight text-ink [animation-delay:60ms] sm:text-6xl">
-            {project.name}
-          </h1>
-          <p className="mt-3 animate-rise font-mono text-sm text-muted [animation-delay:100ms]">
-            {project.context} · {project.period}
-          </p>
-          <p className="mt-8 max-w-3xl animate-rise text-lg leading-relaxed text-body [animation-delay:140ms] sm:text-xl">
-            {project.intro}
-          </p>
-          {project.links.length > 0 && (
-            <div className="mt-9 flex flex-wrap items-center gap-3">
-              {project.links.map((l, i) => (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm transition-colors ${
-                    i === 0
-                      ? "bg-teal font-semibold text-teal-deep hover:bg-ink"
-                      : "border border-line-strong font-medium text-ink hover:border-teal hover:text-teal"
-                  }`}
-                >
-                  {l.label} <ArrowUpRight />
-                </a>
-              ))}
-              {project.links.find((l) => l.note) && (
-                <span className="text-xs text-muted">{project.links.find((l) => l.note)?.note}</span>
-              )}
+      <header className="relative overflow-hidden border-b border-seam/60">
+        <HeaderBackdrop project={project} />
+        <div
+          className={`relative mx-auto max-w-6xl px-4 pt-10 pb-16 sm:px-6 sm:pt-14 sm:pb-20 ${
+            sideMotif ? "lg:grid lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-center lg:gap-14" : ""
+          }`}
+        >
+          <div className="max-w-3xl">
+            <Link
+              href="/#work"
+              className="mb-12 inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-signal"
+            >
+              <ArrowLeft /> All work
+            </Link>
+            <p className="label hero-fade mb-5 flex items-center gap-3">
+              <span aria-hidden className="h-px w-8 bg-signal" />
+              {project.tag}
+            </p>
+            <h1 className="display-xl text-5xl sm:text-7xl">
+              <span className="hero-line">
+                <span style={{ ["--d" as string]: "60ms" }}>{project.name}</span>
+              </span>
+            </h1>
+            <p className="hero-fade mt-4 text-sm text-muted" style={{ ["--d" as string]: "200ms" }}>
+              {project.context} · {project.period}
+            </p>
+            <p
+              className="hero-fade mt-8 max-w-3xl text-lg leading-relaxed text-body sm:text-xl"
+              style={{ ["--d" as string]: "280ms" }}
+            >
+              {project.intro}
+            </p>
+            {project.links.length > 0 && (
+              <div className="hero-fade mt-9 flex flex-wrap items-center gap-3" style={{ ["--d" as string]: "380ms" }}>
+                {project.links.map((l, i) => (
+                  <a
+                    key={l.href}
+                    href={l.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm ${
+                      i === 0
+                        ? "btn-signal font-semibold"
+                        : "border border-seam-strong bg-carbon-hi/60 font-medium text-sand transition-colors hover:border-ember hover:text-ember"
+                    }`}
+                  >
+                    {l.label} <ArrowUpRight />
+                  </a>
+                ))}
+                {project.links.find((l) => l.note) && (
+                  <span className="text-xs text-muted">{project.links.find((l) => l.note)?.note}</span>
+                )}
+              </div>
+            )}
+          </div>
+          {sideMotif && (
+            <div
+              className="hero-fade mx-auto mt-12 max-w-sm lg:mt-0 lg:max-w-none"
+              style={{ ["--d" as string]: "300ms" }}
+            >
+              {project.slug === "fanta-f1" ? <Circuit variant="header" /> : <ThesisFigure variant="header" />}
             </div>
           )}
         </div>
+        {project.slug === "fanta-f1" && <CheckeredEdge className="absolute inset-x-0 bottom-0" />}
       </header>
 
       <Gallery project={project} />
 
       <div className="mx-auto max-w-4xl space-y-16 px-4 py-16 sm:px-6 sm:py-20">
-        <dl className="grid gap-3 sm:grid-cols-3">
-          {project.facts.map((f) => (
-            <div key={f.label} className="rounded-xl border border-line bg-night-800/60 p-5">
+        <dl data-reveal="facts" className="grid gap-3 sm:grid-cols-3">
+          {project.facts.map((f, i) => (
+            <div
+              key={f.label}
+              className="step rounded-2xl border border-seam bg-carbon/80 p-5 shadow-[inset_0_1px_0_rgba(236,226,211,0.05)]"
+              style={{ ["--d" as string]: `${i * 110}ms` }}
+            >
               <dt className="sr-only">{f.label}</dt>
               <dd>
-                <span className="block text-3xl font-semibold tracking-tight text-ink">{f.value}</span>
-                <span className="mt-1 block text-sm text-muted">{f.label}</span>
+                <span className="display block text-4xl">{f.value}</span>
+                <span className="mt-2 block text-sm text-muted">{f.label}</span>
               </dd>
             </div>
           ))}
@@ -93,20 +126,28 @@ export default async function CaseStudy({ params }: Props) {
         <Flow flow={project.flow} />
 
         {project.sections.map((s) => (
-          <section key={s.title}>
-            <h2 className="mb-6 text-2xl font-semibold tracking-tight text-ink">{s.title}</h2>
+          <section key={s.title} data-reveal="sector">
+            <div className="mb-6">
+              <h2 className="sector-title display overflow-clip pb-1 text-2xl sm:text-3xl">
+                <span className="block">{s.title}</span>
+              </h2>
+              <span aria-hidden className="sector-line relative mt-4 block h-px" />
+            </div>
             {s.body && <p className="max-w-3xl text-lg leading-relaxed text-body">{s.body}</p>}
             {s.points && (
               <ul className={s.points.some((p) => p.title) ? "grid gap-4 sm:grid-cols-2" : "space-y-3"}>
                 {s.points.map((p) =>
                   p.title ? (
-                    <li key={p.title} className="rounded-xl border border-line bg-night-900/70 p-5">
-                      <h3 className="mb-2 font-semibold text-ink">{p.title}</h3>
+                    <li
+                      key={p.title}
+                      className="rounded-2xl border border-seam bg-carbon/80 p-5 shadow-[inset_0_1px_0_rgba(236,226,211,0.05)]"
+                    >
+                      <h3 className="mb-2 font-semibold text-sand [font-variation-settings:'wdth'_110]">{p.title}</h3>
                       <p className="leading-relaxed text-body">{p.text}</p>
                     </li>
                   ) : (
                     <li key={p.text} className="flex gap-3 text-lg leading-relaxed text-body">
-                      <span aria-hidden className="mt-3 size-1.5 shrink-0 rounded-full bg-teal" />
+                      <span aria-hidden className="mt-3 size-1.5 shrink-0 rounded-full bg-signal" />
                       {p.text}
                     </li>
                   ),
@@ -117,10 +158,10 @@ export default async function CaseStudy({ params }: Props) {
         ))}
 
         <section>
-          <h2 className="eyebrow mb-4 font-mono text-muted">Stack</h2>
+          <h2 className="mb-4 text-base font-semibold text-sand">Stack</h2>
           <p className="flex flex-wrap gap-2">
             {project.stack.map((s) => (
-              <span key={s} className="rounded-md border border-line bg-night-800 px-2.5 py-1 font-mono text-xs text-sky">
+              <span key={s} className="chip px-2.5 py-1">
                 {s}
               </span>
             ))}
@@ -129,15 +170,41 @@ export default async function CaseStudy({ params }: Props) {
 
         <Link
           href={`/work/${next.slug}`}
-          className="group flex items-center justify-between rounded-2xl border border-line bg-night-800/60 p-6 transition-colors hover:border-teal/50"
+          className="glass group flex items-center justify-between rounded-3xl p-6 sm:p-8"
         >
           <span>
-            <span className="eyebrow block font-mono text-muted">Next project</span>
-            <span className="mt-1 block text-2xl font-semibold text-ink">{next.name}</span>
+            <span className="label block">Next project</span>
+            <span className="display mt-2 block text-3xl sm:text-4xl">{next.name}</span>
           </span>
-          <ArrowRight className="size-6 text-teal transition-transform group-hover:translate-x-1" />
+          <ArrowRight className="size-7 text-signal transition-transform duration-300 group-hover:translate-x-1.5" />
         </Link>
       </div>
     </article>
+  );
+}
+
+// Behind the header: a warm light, plus each project's own texture.
+function HeaderBackdrop({ project }: { project: Project }) {
+  return (
+    <>
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(50rem_30rem_at_90%_20%,rgba(255,106,61,0.12),transparent_65%)]"
+      />
+      {project.slug === "zitto-e-corri" && (
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-[38%] opacity-30 [mask-composite:intersect] [mask-image:linear-gradient(100deg,transparent_25%,black_80%),linear-gradient(to_bottom,transparent,black_35%)] lg:h-[75%] lg:opacity-60 lg:[mask-image:linear-gradient(100deg,transparent_58%,black_88%),linear-gradient(to_bottom,transparent,black_35%)]"
+        >
+          <PaceTrace variant="header" />
+        </div>
+      )}
+      {project.slug === "tiger" && (
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(143,179,201,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(143,179,201,0.07)_1px,transparent_1px)] [mask-image:linear-gradient(to_bottom,black,transparent)] bg-[size:32px_32px]"
+        />
+      )}
+    </>
   );
 }

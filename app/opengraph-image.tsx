@@ -26,44 +26,49 @@ const edges = [
 
 export default function OpengraphImage() {
   return new ImageResponse(
-    (
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          alignItems: "center",
-          background: "linear-gradient(135deg, #0a1020 0%, #0d1629 45%, #121f3d 100%)",
-          fontFamily: "sans-serif",
-        }}
-      >
-        <svg width="560" height="520" viewBox="0 0 560 520" style={{ marginLeft: 20 }}>
-          {edges.map(([a, b, hot], i) => (
-            <line
-              key={i}
-              x1={nodes[a].x}
-              y1={nodes[a].y}
-              x2={nodes[b].x}
-              y2={nodes[b].y}
-              stroke={hot ? "#5eead4" : "#2b3d66"}
-              strokeWidth={hot ? 3 : 2}
-            />
-          ))}
-          {nodes.map((n, i) => (
-            <circle key={i} cx={n.x} cy={n.y} r={n.r} fill={n.a ? "#5eead4" : "#93c5fd"} />
-          ))}
-        </svg>
-        <div style={{ display: "flex", flexDirection: "column", paddingRight: 70, flex: 1 }}>
-          <div style={{ color: "#5eead4", fontSize: 22, letterSpacing: 5, marginBottom: 26 }}>
-            FULL-STACK ENGINEER · AI & LLM
-          </div>
-          <div style={{ color: "#eef2f9", fontSize: 60, fontWeight: 700, lineHeight: 1.08, display: "flex", flexWrap: "wrap" }}>
-            Building enterprise platforms with&nbsp;<span style={{ color: "#5eead4" }}>AI built in.</span>
-          </div>
-          <div style={{ color: "#8b97b3", fontSize: 28, marginTop: 34 }}>{profile.name}</div>
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        alignItems: "center",
+        background: "radial-gradient(circle at 25% 45%, #3a2216 0%, #1f1b16 38%, #16130f 75%)",
+        fontFamily: "sans-serif",
+      }}
+    >
+      <svg width="560" height="520" viewBox="0 0 560 520" style={{ marginLeft: 20 }}>
+        {edges.map(([a, b, hot], i) => (
+          <line
+            key={i}
+            x1={nodes[a].x}
+            y1={nodes[a].y}
+            x2={nodes[b].x}
+            y2={nodes[b].y}
+            stroke={hot ? "#ff6a3d" : "#4a4034"}
+            strokeWidth={hot ? 3 : 2}
+          />
+        ))}
+        {nodes.map((n, i) => (
+          <circle key={i} cx={n.x} cy={n.y} r={n.r} fill={n.a ? "#ff6a3d" : "#ece2d3"} />
+        ))}
+      </svg>
+      <div style={{ display: "flex", flexDirection: "column", paddingRight: 70, flex: 1 }}>
+        <div style={{ color: "#ffb38a", fontSize: 26, fontWeight: 600, marginBottom: 26 }}>{profile.eyebrow}</div>
+        <div
+          style={{
+            color: "#ece2d3",
+            fontSize: 60,
+            fontWeight: 700,
+            lineHeight: 1.08,
+            display: "flex",
+            flexWrap: "wrap",
+          }}
+        >
+          Building enterprise platforms with&nbsp;<span style={{ color: "#ff6a3d" }}>AI built in.</span>
         </div>
+        <div style={{ color: "#a39684", fontSize: 28, marginTop: 34 }}>{profile.name}</div>
       </div>
-    ),
+    </div>,
     size,
   );
 }
