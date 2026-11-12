@@ -52,7 +52,7 @@ export const projects: Project[] = [
     slug: "zitto-e-corri",
     name: "Zitto e Corri",
     tag: "AI coach · PWA",
-    period: "2026",
+    period: "2026 – today",
     context: "Personal project",
     summary:
       "A mobile-first running coach where an LLM reads your training data and proposes plan changes that you approve.",
@@ -202,7 +202,7 @@ export const projects: Project[] = [
     slug: "fanta-f1",
     name: "Fanta F1",
     tag: "Real-time · PWA",
-    period: "2025 – today",
+    period: "2023 – today",
     context: "Personal project",
     summary:
       "A Formula 1 fantasy league for friends, with automatic data sync, live standings and push reminders before qualifying.",
@@ -313,7 +313,7 @@ export const experience: {
     role: "Front-End Software Engineer",
     company: "Altec",
     place: "Turin",
-    period: "Sep 2025 – Sep 2026",
+    period: "Sep 2025 – Oct 2026",
     text: "Front ends in Vue and TypeScript for a NestJS and PostgreSQL platform, shipped on on-prem Docker and Kubernetes with GitLab CI/CD and OAuth2/JWT authentication.",
     stack: ["Vue", "TypeScript", "NestJS", "PostgreSQL", "Kubernetes"],
   },
