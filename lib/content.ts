@@ -42,6 +42,9 @@ export type Project = {
   facts: { value: string; label: string }[];
   flow: { title: string; steps: string[]; loop?: string };
   sections: CaseSection[];
+  /** Phone screenshots of the installed PWA; the first one is the cover. */
+  screens?: { src: string; alt: string; caption: string }[];
+  screensNote?: string;
 };
 
 export const projects: Project[] = [
@@ -75,6 +78,34 @@ export const projects: Project[] = [
       { value: "2", label: "LLM providers, routed per task" },
       { value: "100+", label: "automated tests" },
       { value: "7 days", label: "of plan synced to the watch" },
+    ],
+    screensNote: "Screens from the installed app (PWA) on a phone, with the author's own training data.",
+    screens: [
+      {
+        src: "/screens/zitto-chat.jpg",
+        alt: "Coach chat in Zitto e Corri: the athlete asks to move a session and the coach answers and updates the plan",
+        caption: "The coach answers with the athlete's real data and updates the plan. Every reply shows tokens and cost.",
+      },
+      {
+        src: "/screens/zitto-home.jpg",
+        alt: "Zitto e Corri home with the next session, its intensity profile and the week at a glance",
+        caption: "Home: the next session with its intensity profile, the week at a glance and the coach.",
+      },
+      {
+        src: "/screens/zitto-analysis.jpg",
+        alt: "AI analysis of a 13 km run with heart-rate zones and the coach's comment",
+        caption: "AI analysis of a run against the plan, with heart-rate zones and the cost of the call.",
+      },
+      {
+        src: "/screens/zitto-plan.jpg",
+        alt: "Training plan towards a half marathon with phases and the current week",
+        caption: "A rolling plan towards the goal race, with training phases and what was done.",
+      },
+      {
+        src: "/screens/zitto-profile.jpg",
+        alt: "Profile with a readiness score of 83 computed from recovery and sleep",
+        caption: "Readiness from recovery and sleep, synced from the watch.",
+      },
     ],
     flow: {
       title: "How a coach suggestion reaches the plan",
@@ -186,6 +217,34 @@ export const projects: Project[] = [
       { value: "PWA", label: "installable on any phone" },
       { value: "3", label: "push reminders before qualifying" },
       { value: "CI/CD", label: "deploy on every push to main" },
+    ],
+    screensNote: "Screens from the installed app (PWA), running locally against the Firebase emulators with test data.",
+    screens: [
+      {
+        src: "/screens/fantaf1-home.jpg",
+        alt: "Fanta F1 home with the next Grand Prix, the lineup deadline countdown and the standings",
+        caption: "Home: the next race, the countdown to the lineup deadline and live standings.",
+      },
+      {
+        src: "/screens/fantaf1-lineup.jpg",
+        alt: "Lineup form with podium picks and jokers for the Las Vegas Grand Prix",
+        caption: "Lineup for the next Grand Prix, with podium picks, jokers and duplicate checks.",
+      },
+      {
+        src: "/screens/fantaf1-results.jpg",
+        alt: "Race results with the official podium and every player's lineup and points",
+        caption: "Race results with every player's lineup and the points it earned.",
+      },
+      {
+        src: "/screens/fantaf1-stats.jpg",
+        alt: "Player statistics with a bar chart of points per Grand Prix",
+        caption: "Per-player statistics: points per Grand Prix and championship position.",
+      },
+      {
+        src: "/screens/fantaf1-reminders.jpg",
+        alt: "Prompt asking to enable race reminders one hour and five minutes before the start",
+        caption: "Push reminders before every race, offered on the first launch of the installed app.",
+      },
     ],
     flow: {
       title: "From the track to the standings",

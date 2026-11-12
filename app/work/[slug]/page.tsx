@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Flow } from "@/components/Flow";
+import { Gallery } from "@/components/Gallery";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "@/components/icons";
 import { projects } from "@/lib/content";
 
@@ -73,6 +74,8 @@ export default async function CaseStudy({ params }: Props) {
           )}
         </div>
       </header>
+
+      <Gallery project={project} />
 
       <div className="mx-auto max-w-4xl space-y-16 px-4 py-16 sm:px-6 sm:py-20">
         <dl className="grid gap-3 sm:grid-cols-3">
