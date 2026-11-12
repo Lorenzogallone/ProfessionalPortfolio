@@ -313,7 +313,7 @@ export const experience: {
     role: "Front-End Software Engineer",
     company: "Altec",
     place: "Turin",
-    period: "Sep 2025 – Oct 2026",
+    period: "Sep 2025 – Sep 2026",
     text: "Front ends in Vue and TypeScript for a NestJS and PostgreSQL platform, shipped on on-prem Docker and Kubernetes with GitLab CI/CD and OAuth2/JWT authentication.",
     stack: ["Vue", "TypeScript", "NestJS", "PostgreSQL", "Kubernetes"],
   },
