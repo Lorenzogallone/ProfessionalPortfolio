@@ -38,26 +38,17 @@ export default function Home() {
         </div>
       </Section>
 
-      <div className="relative border-y border-seam/60 bg-carbon/70">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(60rem_30rem_at_85%_0%,rgba(143,179,201,0.06),transparent_70%)]"
-        />
+      <div className="relative border-y border-seam/60 bg-carbon">
         <Section id="experience" eyebrow="Experience" title="From requirements to production.">
           <div data-reveal="timeline" className="relative">
-            <span
-              aria-hidden
-              className="grow-y absolute top-2 bottom-2 left-0 w-px bg-gradient-to-b from-signal via-seam-strong to-seam"
-            />
+            <span aria-hidden className="grow-y absolute top-2 bottom-2 left-0 w-px bg-seam-strong" />
             <ol className="space-y-14 pl-8 sm:pl-12">
               {experience.map((job, i) => (
                 <li key={job.company} className="step relative" style={{ ["--d" as string]: `${200 + i * 250}ms` }}>
                   <span
                     aria-hidden
                     className={`absolute top-2 -left-[calc(2rem+5px)] size-2.5 rounded-full sm:-left-[calc(3rem+5px)] ${
-                      i === 0
-                        ? "bg-signal shadow-[0_0_0_5px_rgba(255,106,61,0.18),0_0_18px_rgba(255,106,61,0.7)]"
-                        : "bg-steel/80"
+                      i === 0 ? "bg-signal" : "bg-steel/80"
                     }`}
                   />
                   <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
@@ -93,10 +84,7 @@ export default function Home() {
               </p>
             ))}
             <p className="step relative pl-5 text-base text-muted" style={{ ["--d" as string]: "260ms" }}>
-              <span
-                aria-hidden
-                className="absolute inset-y-1 left-0 w-0.5 rounded-full bg-gradient-to-b from-signal to-ember/40"
-              />
+              <span aria-hidden className="absolute inset-y-1 left-0 w-0.5 bg-signal" />
               {about.offline}
             </p>
           </div>
@@ -137,14 +125,7 @@ export default function Home() {
 function Hero() {
   return (
     <section className="relative overflow-hidden">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(48rem_36rem_at_78%_38%,rgba(255,106,61,0.13),transparent_65%),radial-gradient(40rem_30rem_at_10%_110%,rgba(143,179,201,0.08),transparent_70%)]"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-seam-strong to-transparent"
-      />
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-seam/70" />
       <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 pt-16 pb-20 sm:px-6 sm:pt-24 sm:pb-28 lg:grid-cols-[1.5fr_1fr]">
         <div>
           <p className="label hero-fade mb-7 flex items-center gap-3" style={{ ["--d" as string]: "0ms" }}>
@@ -178,7 +159,7 @@ function Hero() {
               href={profile.resume}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium text-sand transition-colors hover:text-ember"
+              className="inline-flex items-center gap-2 rounded-xl border border-seam-strong bg-carbon-hi px-5 py-3 text-sm font-medium text-sand transition-colors hover:border-ember hover:text-ember"
             >
               <FileText className="size-4" /> Resume
             </a>
@@ -209,11 +190,7 @@ function Hero() {
 function Contact() {
   return (
     <section id="contact" aria-labelledby="contact-title" className="mx-auto max-w-6xl px-4 pb-24 sm:px-6">
-      <div data-reveal="card" className="glass overflow-hidden rounded-[2rem] px-6 py-14 sm:px-14 sm:py-16">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(40rem_24rem_at_100%_100%,rgba(255,106,61,0.14),transparent_70%)]"
-        />
+      <div data-reveal="card" className="surface overflow-hidden rounded-[2rem] px-6 py-14 sm:px-14 sm:py-16">
         <NodeGraph className="pointer-events-none absolute -right-16 -bottom-20 w-80 opacity-40 sm:w-96 sm:opacity-70" />
         <div className="relative max-w-xl">
           <p className="label mb-4">Contact</p>
@@ -232,7 +209,7 @@ function Contact() {
             </a>
             <a
               href={profile.linkedin}
-              className="inline-flex items-center gap-2 rounded-xl border border-seam-strong bg-carbon-hi/60 px-5 py-3 text-sm font-medium text-sand transition-colors hover:border-ember hover:text-ember"
+              className="inline-flex items-center gap-2 rounded-xl border border-seam-strong bg-carbon-hi px-5 py-3 text-sm font-medium text-sand transition-colors hover:border-ember hover:text-ember"
             >
               <LinkedIn className="size-4" /> LinkedIn
             </a>

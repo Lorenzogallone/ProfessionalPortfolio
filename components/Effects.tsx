@@ -5,7 +5,6 @@ import { useEffect } from "react";
 
 // Page-wide effects for server-rendered markup, so components stay server components:
 // - scroll reveals for elements marked with data-reveal (they get data-in once on screen);
-// - the pointer light on .glass surfaces (--mx / --my);
 // - SVG animations (SMIL) that only run while their card is hovered or focused.
 // Without JS nothing is hidden: the hidden states only apply under html[data-ready].
 export function Effects() {
@@ -64,26 +63,6 @@ export function Effects() {
       cleanups.forEach((c) => c());
     };
   }, [pathname]);
-
-  useEffect(() => {
-    let frame = 0;
-    const onMove = (e: PointerEvent) => {
-      if (e.pointerType === "touch") return;
-      const el = (e.target as Element | null)?.closest?.<HTMLElement>(".glass");
-      if (!el) return;
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => {
-        const r = el.getBoundingClientRect();
-        el.style.setProperty("--mx", `${e.clientX - r.left}px`);
-        el.style.setProperty("--my", `${e.clientY - r.top}px`);
-      });
-    };
-    document.addEventListener("pointermove", onMove, { passive: true });
-    return () => {
-      document.removeEventListener("pointermove", onMove);
-      cancelAnimationFrame(frame);
-    };
-  }, []);
 
   return null;
 }

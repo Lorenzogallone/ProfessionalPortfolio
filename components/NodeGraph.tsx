@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 // The node graph from the LinkedIn banner, now alive: nodes drift and lean towards
 // the pointer, a route lights up across the network and signals travel along it,
@@ -51,7 +51,6 @@ const ROUTE_MS = 4200;
 const SEG_MS = 900;
 
 export function NodeGraph({ className = "" }: { className?: string }) {
-  const uid = useId().replace(/:/g, "");
   const svgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
@@ -178,21 +177,7 @@ export function NodeGraph({ className = "" }: { className?: string }) {
 
   return (
     <svg ref={svgRef} viewBox="0 0 400 380" className={`node-graph ${className}`} aria-hidden>
-      <defs>
-        <radialGradient id={`${uid}-glow`} cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#ff6a3d" stopOpacity="0.16" />
-          <stop offset="55%" stopColor="#ffb38a" stopOpacity="0.05" />
-          <stop offset="100%" stopColor="#ffb38a" stopOpacity="0" />
-        </radialGradient>
-        <linearGradient id={`${uid}-hot`} gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="400" y2="380">
-          <stop offset="0%" stopColor="#ffb38a" />
-          <stop offset="100%" stopColor="#ff6a3d" />
-        </linearGradient>
-        <filter id={`${uid}-blur`} x="-100%" y="-100%" width="300%" height="300%">
-          <feGaussianBlur stdDeviation="3" />
-        </filter>
-      </defs>
-      <circle cx="200" cy="190" r="190" fill={`url(#${uid}-glow)`} />
+      <defs></defs>
       <g stroke="#4a4034" strokeWidth="1.2" strokeLinecap="round">
         {edges.map(([a, b]) => (
           <line
@@ -207,7 +192,7 @@ export function NodeGraph({ className = "" }: { className?: string }) {
           />
         ))}
       </g>
-      <g stroke={`url(#${uid}-hot)`} strokeWidth="2" strokeLinecap="round">
+      <g stroke="#ff6a3d" strokeWidth="2" strokeLinecap="round">
         {edges.map(([a, b], i) => (
           <line
             key={`h-${a}-${b}`}
@@ -240,8 +225,17 @@ export function NodeGraph({ className = "" }: { className?: string }) {
       ))}
       {[0, 1].map((k) => (
         <g key={`p-${k}`}>
-          <circle data-packet r="7" fill="#ffb38a" filter={`url(#${uid}-blur)`} style={{ opacity: 0 }} cx="0" cy="0" />
-          <circle data-packet r="2.6" fill="#fff4ea" style={{ opacity: 0 }} cx="0" cy="0" />
+          <circle
+            data-packet
+            r="5"
+            fill="#16130f"
+            stroke="#ff6a3d"
+            strokeWidth="1.5"
+            style={{ opacity: 0 }}
+            cx="0"
+            cy="0"
+          />
+          <circle data-packet r="2.2" fill="#ffb38a" style={{ opacity: 0 }} cx="0" cy="0" />
         </g>
       ))}
     </svg>

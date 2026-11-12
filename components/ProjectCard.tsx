@@ -18,7 +18,7 @@ export function ProjectCard({
       href={`/work/${project.slug}`}
       data-reveal="card"
       style={{ ["--d" as string]: `${index * 120}ms` }}
-      className={`glass group flex flex-col overflow-hidden rounded-3xl ${featured ? "lg:col-span-2 lg:flex-row-reverse" : ""}`}
+      className={`surface group flex flex-col overflow-hidden rounded-3xl ${featured ? "lg:col-span-2 lg:flex-row-reverse" : ""}`}
     >
       <Visual project={project} featured={featured} />
       <div className={`relative flex flex-1 flex-col p-6 sm:p-8 ${featured ? "lg:justify-center lg:p-12" : ""}`}>

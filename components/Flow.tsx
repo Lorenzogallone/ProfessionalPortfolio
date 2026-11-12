@@ -6,7 +6,7 @@ import type { Project } from "@/lib/content";
 export function Flow({ flow }: { flow: Project["flow"] }) {
   const n = flow.steps.length;
   return (
-    <figure data-reveal="flow" className="glass rounded-3xl p-5 sm:p-8">
+    <figure data-reveal="flow" className="surface rounded-3xl p-5 sm:p-8">
       <figcaption className="mb-7 text-base font-semibold text-sand">{flow.title}</figcaption>
       <ol className="flex flex-col gap-2 md:flex-row md:items-stretch md:gap-0">
         {flow.steps.map((step, i) => {
@@ -16,9 +16,7 @@ export function Flow({ flow }: { flow: Project["flow"] }) {
             <li key={step} className="flex flex-col items-start md:min-w-0 md:flex-1 md:flex-row md:items-center">
               <span
                 className={`step rounded-xl border px-3.5 py-2 text-sm md:flex md:h-full md:w-full md:items-center md:justify-center md:px-2 md:text-center ${
-                  ends
-                    ? "border-signal/60 bg-signal/10 text-sand shadow-[0_0_24px_-8px_rgba(255,106,61,0.6)]"
-                    : "border-seam-strong bg-carbon-hi text-body"
+                  ends ? "border-signal/60 bg-signal/10 text-sand" : "border-seam-strong bg-carbon-hi text-body"
                 }`}
                 style={{ ["--d" as string]: `${i * 140}ms` }}
               >

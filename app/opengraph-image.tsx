@@ -32,7 +32,7 @@ export default function OpengraphImage() {
         height: "100%",
         display: "flex",
         alignItems: "center",
-        background: "radial-gradient(circle at 25% 45%, #3a2216 0%, #1f1b16 38%, #16130f 75%)",
+        background: "#16130f",
         fontFamily: "sans-serif",
       }}
     >

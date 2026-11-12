@@ -6,11 +6,7 @@ import { Phone } from "./Phone";
 export function Gallery({ project }: { project: Project }) {
   if (!project.screens?.length) return null;
   return (
-    <section aria-labelledby="screens-title" className="relative border-b border-seam/60 bg-carbon/70">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(50rem_22rem_at_50%_100%,rgba(255,106,61,0.08),transparent_70%)]"
-      />
+    <section aria-labelledby="screens-title" className="relative border-b border-seam/60 bg-carbon">
       <div data-reveal="gallery" className="relative mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
         <div className="mx-auto mb-9 lg:max-w-[1080px]">
           <h2 id="screens-title" className="label">

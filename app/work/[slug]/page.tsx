@@ -80,7 +80,7 @@ export default async function CaseStudy({ params }: Props) {
                     className={`inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm ${
                       i === 0
                         ? "btn-signal font-semibold"
-                        : "border border-seam-strong bg-carbon-hi/60 font-medium text-sand transition-colors hover:border-ember hover:text-ember"
+                        : "border border-seam-strong bg-carbon-hi font-medium text-sand transition-colors hover:border-ember hover:text-ember"
                     }`}
                   >
                     {l.label} <ArrowUpRight />
@@ -111,7 +111,7 @@ export default async function CaseStudy({ params }: Props) {
           {project.facts.map((f, i) => (
             <div
               key={f.label}
-              className="step rounded-2xl border border-seam bg-carbon/80 p-5 shadow-[inset_0_1px_0_rgba(236,226,211,0.05)]"
+              className="step rounded-2xl border border-seam bg-carbon p-5"
               style={{ ["--d" as string]: `${i * 110}ms` }}
             >
               <dt className="sr-only">{f.label}</dt>
@@ -138,10 +138,7 @@ export default async function CaseStudy({ params }: Props) {
               <ul className={s.points.some((p) => p.title) ? "grid gap-4 sm:grid-cols-2" : "space-y-3"}>
                 {s.points.map((p) =>
                   p.title ? (
-                    <li
-                      key={p.title}
-                      className="rounded-2xl border border-seam bg-carbon/80 p-5 shadow-[inset_0_1px_0_rgba(236,226,211,0.05)]"
-                    >
+                    <li key={p.title} className="rounded-2xl border border-seam bg-carbon p-5">
                       <h3 className="mb-2 font-semibold text-sand [font-variation-settings:'wdth'_110]">{p.title}</h3>
                       <p className="leading-relaxed text-body">{p.text}</p>
                     </li>
@@ -170,7 +167,7 @@ export default async function CaseStudy({ params }: Props) {
 
         <Link
           href={`/work/${next.slug}`}
-          className="glass group flex items-center justify-between rounded-3xl p-6 sm:p-8"
+          className="surface group flex items-center justify-between rounded-3xl p-6 sm:p-8"
         >
           <span>
             <span className="label block">Next project</span>
@@ -187,10 +184,6 @@ export default async function CaseStudy({ params }: Props) {
 function HeaderBackdrop({ project }: { project: Project }) {
   return (
     <>
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(50rem_30rem_at_90%_20%,rgba(255,106,61,0.12),transparent_65%)]"
-      />
       {project.slug === "zitto-e-corri" && (
         <div
           aria-hidden

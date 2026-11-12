@@ -46,17 +46,7 @@ export function PaceTrace({ variant }: { variant: Variant }) {
       data-smil={variant === "card" ? "hover" : "auto"}
       aria-hidden
     >
-      <defs>
-        <linearGradient id={`hr-${variant}`} x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0" stopColor="#ffb38a" stopOpacity="0.5" />
-          <stop offset="0.3" stopColor="#ff6a3d" />
-          <stop offset="1" stopColor="#ffb38a" />
-        </linearGradient>
-        <linearGradient id={`hr-fill-${variant}`} x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stopColor="#ff6a3d" stopOpacity="0.22" />
-          <stop offset="1" stopColor="#ff6a3d" stopOpacity="0" />
-        </linearGradient>
-      </defs>
+      <defs></defs>
       {/* Heart-rate zones, warmer towards the top. */}
       {zones.map((y, i) => (
         <rect key={y} x="0" y={y - 40} width={W} height="40" fill="#ff6a3d" fillOpacity={0.075 - i * 0.014} />
@@ -66,7 +56,6 @@ export function PaceTrace({ variant }: { variant: Variant }) {
           <line key={i} x1={i * 60} x2={i * 60} y1="0" y2={H} />
         ))}
       </g>
-      <path d={`${hr} L${W} ${H} L0 ${H} Z`} fill={`url(#hr-fill-${variant})`} className="trace-fill" />
       <path
         d={pace}
         fill="none"
@@ -81,7 +70,7 @@ export function PaceTrace({ variant }: { variant: Variant }) {
         id={`hr-line-${variant}`}
         d={hr}
         fill="none"
-        stroke={`url(#hr-${variant})`}
+        stroke="#ff6a3d"
         strokeWidth="2.2"
         strokeLinejoin="round"
         pathLength={1}
@@ -90,8 +79,7 @@ export function PaceTrace({ variant }: { variant: Variant }) {
       <g
         className={`motion-only trace-dot ${variant === "card" ? "opacity-0 transition-opacity duration-300 group-hover:opacity-100" : ""}`}
       >
-        <circle r="9" fill="#ff6a3d" opacity="0.3" />
-        <circle r="3.5" fill="#fff4ea" />
+        <circle r="4.5" fill="#ff6a3d" stroke="#16130f" strokeWidth="2" />
         <animateMotion dur={variant === "card" ? "3.2s" : "9s"} repeatCount="indefinite">
           <mpath href={`#hr-line-${variant}`} />
         </animateMotion>
@@ -124,9 +112,6 @@ export function Circuit({ variant }: { variant: Variant }) {
           <rect width="2" height="2" fill="#ece2d3" />
           <rect x="2" y="2" width="2" height="2" fill="#ece2d3" />
         </pattern>
-        <filter id={`car-glow-${variant}`} x="-200%" y="-200%" width="500%" height="500%">
-          <feGaussianBlur stdDeviation="3.5" />
-        </filter>
       </defs>
       {/* Kerbs: alternating signal and sand along both edges. */}
       <path d={TRACK} fill="none" stroke="#ece2d3" strokeOpacity="0.55" strokeWidth="17" strokeLinejoin="round" />
@@ -147,7 +132,6 @@ export function Circuit({ variant }: { variant: Variant }) {
       <rect x="112" y="211" width="8" height="14" fill={`url(#chk-${variant})`} />
       <g>
         <rect x="-14" y="-1.2" width="14" height="2.4" rx="1.2" fill="#ffb38a" opacity="0.5" />
-        <rect x="-6" y="-3.2" width="12" height="6.4" rx="2.2" fill="#ff6a3d" filter={`url(#car-glow-${variant})`} />
         <rect x="-6" y="-3.2" width="12" height="6.4" rx="2.2" fill="#ff6a3d" />
         <rect x="1" y="-1.6" width="3" height="3.2" rx="1" fill="#16130f" />
         <animateMotion
@@ -178,7 +162,7 @@ export function SpeedStreaks() {
       {streaks.map((s) => (
         <span
           key={s.top}
-          className="streak absolute right-0 h-px bg-gradient-to-l from-transparent via-ember/70 to-transparent"
+          className="streak absolute right-0 h-px bg-ember/50"
           style={{ top: s.top, width: s.w, ["--d" as string]: s.d }}
         />
       ))}
@@ -204,7 +188,7 @@ export function ThesisFigure({ variant }: { variant: Variant }) {
   return (
     <figure
       aria-hidden
-      className={`graph-paper relative rounded-[3px] text-paper-ink shadow-[0_30px_60px_-20px_rgba(0,0,0,0.9),0_0_0_1px_rgba(0,0,0,0.3)] ${
+      className={`graph-paper relative rounded-[3px] text-paper-ink shadow-[0_24px_40px_-24px_rgba(0,0,0,0.8)] ${
         header
           ? "w-full rotate-[1.5deg] p-6"
           : "absolute top-5 left-1/2 w-[86%] max-w-[440px] -translate-x-1/2 -rotate-2 p-4 sm:p-5"
