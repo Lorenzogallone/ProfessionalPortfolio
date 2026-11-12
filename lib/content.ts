@@ -292,6 +292,6 @@ export const about = {
     "Before MarketLabs I built front ends at Altec in Turin. I hold a double MSc from the University of Illinois Chicago and Politecnico di Torino, where my thesis, TIGER, studied how test feedback makes LLM-generated code better.",
   ],
   offline:
-    "Away from the keyboard I coach ski racing at Sci Club Borgata in Sestriere and I'm a certified ski instructor (Collegio Maestri di Sci del Piemonte).",
+    "Away from the keyboard I'm a certified ski instructor, teaching on weekends and in my free time.",
   languages: "Italian (native) · English (professional, IELTS 7)",
 };
