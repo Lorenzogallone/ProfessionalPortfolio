@@ -82,24 +82,24 @@ export const projects: Project[] = [
     screensNote: "Screens from the installed app (PWA) on a phone, with the author's own training data.",
     screens: [
       {
-        src: "/screens/zitto-chat.jpg",
-        alt: "Coach chat in Zitto e Corri: the athlete asks to move a session and the coach answers and updates the plan",
-        caption: "The coach answers with the athlete's real data and updates the plan. Every reply shows tokens and cost.",
-      },
-      {
         src: "/screens/zitto-home.jpg",
         alt: "Zitto e Corri home with the next session, its intensity profile and the week at a glance",
         caption: "Home: the next session with its intensity profile, the week at a glance and the coach.",
       },
       {
-        src: "/screens/zitto-analysis.jpg",
-        alt: "AI analysis of a 13 km run with heart-rate zones and the coach's comment",
-        caption: "AI analysis of a run against the plan, with heart-rate zones and the cost of the call.",
-      },
-      {
         src: "/screens/zitto-plan.jpg",
         alt: "Training plan towards a half marathon with phases and the current week",
         caption: "A rolling plan towards the goal race, with training phases and what was done.",
+      },
+      {
+        src: "/screens/zitto-chat.jpg",
+        alt: "Coach chat in Zitto e Corri: the athlete asks to move a session and the coach answers and updates the plan",
+        caption: "The coach answers with the athlete's real data and updates the plan. Every reply shows tokens and cost.",
+      },
+      {
+        src: "/screens/zitto-analysis.jpg",
+        alt: "AI analysis of a 13 km run with heart-rate zones and the coach's comment",
+        caption: "AI analysis of a run against the plan, with heart-rate zones and the cost of the call.",
       },
       {
         src: "/screens/zitto-profile.jpg",

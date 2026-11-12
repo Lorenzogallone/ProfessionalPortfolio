@@ -49,7 +49,7 @@ function Visual({ project, featured }: { project: Project; featured: boolean }) 
       ) : featured ? (
         <>
           <Phone
-            src={screens[2]?.src ?? screens[0].src}
+            src={screens[1]?.src ?? screens[0].src}
             alt=""
             sizes="240px"
             className="absolute top-14 left-1/2 w-[46%] max-w-[230px] translate-x-[-95%] rotate-[-4deg] opacity-80 transition-transform duration-500 group-hover:rotate-[-6deg]"
